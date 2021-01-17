@@ -1,0 +1,62 @@
+﻿@model MvcKutuphane.Models.Entity.TBLUYELER
+
+@{
+    /**/
+
+    ViewBag.Title = "UyeGetir";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+
+<h2>Üye Güncelle</h2>
+
+<hr />
+<br />
+@using (Html.BeginForm("UyeGuncelle", "Uyeler", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.ID)
+
+    <div style="margin-top:15px;">
+        <label>Üye Ad : </label>
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control", @placeholder = "Üye Ad Bilgilerini Giriniz..." })
+        @Html.ValidationMessageFor(x => x.AD, "", new { @style = "color:red" })
+
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Üye Soyad : </label>
+        @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control", @placeholder = "Üye Soyad Bilgilerini Giriniz..." })
+        @Html.ValidationMessageFor(x => x.SOYAD, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Üye Telefon'u : </label>
+        @Html.TextBoxFor(x => x.TELEFON, new { @class = "form-control", @placeholder = "Üye Telefon Bilgilerini Giriniz..." })
+        @Html.ValidationMessageFor(x => x.TELEFON, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Üye Adres : </label>
+        @Html.TextBoxFor(x => x.ADRES, new { @class = "form-control", @placeholder = "Üye Adres Bilgilerini Giriniz..." })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Üye Fakülte : </label>
+        @Html.TextBoxFor(x => x.FAKULTE, new { @class = "form-control", @placeholder = "Üye Fakülte Bilgilerini Giriniz..." })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Üye Kullanıcı Adı : </label>
+        @Html.TextBoxFor(x => x.KULLANICIADI, new { @class = "form-control", @placeholder = "Üye Kullanıcı Adı Bilgilerini Giriniz..." })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Üye Şifresi : </label>
+        @Html.TextBoxFor(x => x.SIFRE, new { @class = "form-control", @placeholder = "Üye Şifresi Bilgilerini Giriniz..." })
+    </div>
+</div>
+    <br />
+    <div style="margin-top:15px;">
+        <button class="btn btn-success" id="btnGuncelle"><span class="fas fa-paper-plane">&nbsp; </span>Güncelle</button>
+    </div>
+    }

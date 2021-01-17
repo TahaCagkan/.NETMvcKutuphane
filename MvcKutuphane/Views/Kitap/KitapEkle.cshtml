@@ -1,0 +1,53 @@
+﻿@model MvcKutuphane.Models.Entity.TBLKITAP
+
+@{
+    ViewBag.Title = "KitapEkle";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<h2>Kitap Ekle Sayfası</h2>
+<hr />
+<br />
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px;">
+        <label>Kitap Adı : </label>
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control", @placeholder = "Kitap Adını Giriniz..." })
+
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Kitap Kategorisi : </label>
+        @Html.DropDownListFor(x => x.TBLKATEGORI.ID, (List<SelectListItem>)ViewBag.ktp1, "Kitabı Seçiniz.", new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Yazarı : </label>
+        @Html.DropDownListFor(x => x.TBLYAZAR.ID, (List<SelectListItem>)ViewBag.ktp2, "Yazarı Seçiniz.", new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Basım Yılı : </label>
+        @Html.TextBoxFor(x => x.BASIMYIL, new { @class = "form-control", @placeholder = "Kitap Basım Yılını Giriniz..." })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Yayınevi  : </label>
+        @Html.TextBoxFor(x => x.YAYINEVI, new { @class = "form-control", @placeholder = "Kitap Yayınevini Giriniz..." })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Sayfa Sayısı : </label>
+        @Html.TextBoxFor(x => x.SAYFA, new { @class = "form-control", @placeholder = "Kitap Sayfa Sayısını Giriniz..." })
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info" id="kitapKaydet"><span class="fas fa-plus-circle"></span>&nbsp; Kitap Ekle</button>
+    </div>
+
+</form>
+
+<script>
+    $('#kitapKaydet').click(function () {
+        alert("Yeni Kitap Eklendi.");
+    });
+</script>

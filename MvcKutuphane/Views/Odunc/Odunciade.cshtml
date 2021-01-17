@@ -1,0 +1,73 @@
+﻿@model MvcKutuphane.Models.Entity.TBLHAREKET
+
+@{
+    ViewBag.Title = "Odunciade";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<h2>Ödünç İade</h2>
+<hr />
+<br />
+@using (Html.BeginForm("OduncGuncelle", "Odunc", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.ID)
+
+    <div style="margin-top:15px;">
+        <label>Kitap Adı : </label>
+        @Html.TextBoxFor(x => x.TBLKITAP.ID, new { @class = "form-control", @readonly = "readonly" })
+
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Üye Adı : </label>
+        @Html.TextBoxFor(x => x.TBLUYELER.AD, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Üye Soyadı : </label>
+        @Html.TextBoxFor(x => x.TBLUYELER.SOYAD, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Personel Adı : </label>
+        @Html.TextBoxFor(x => x.TBLUYELER.SOYAD, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Personel Soyadı : </label>
+        @Html.TextBoxFor(x => x.TBLUYELER.SOYAD, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Alış Tarihi : </label>
+        @Html.TextBoxFor(x => x.ALISTARIH, "{0: dd.MM.yyyy }", new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>İade Tarihi : </label>
+        @Html.TextBoxFor(x => x.IADETARIH, "{0: dd.MM.yyyy }", new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Üyenin Getirdiği Tarihi : </label>
+        <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" readonly />
+    </div>
+    
+    <br />
+    <div style="margin-top:15px;">
+        <label>Geç Gelen Gün Sayısı : </label>
+        <input type="text" class="form-control" id="Gecinput" value="@ViewBag.dgr"  readonly />
+    </div>
+</div>
+    <br />
+    <div style="margin-top:15px;">
+        <button class="btn btn-success" style="background-color:#64d8ca; color:white;" id="btnGuncelle"><span class="fas fa-paper-plane">&nbsp; </span>Ödünç Kitabı Geri Al</button>
+    </div>
+}
+<script>
+    $('#btnGuncelle').click(function () {
+        alert("Kitap Geri Alındı.");
+    });
+</script>

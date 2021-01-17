@@ -1,0 +1,39 @@
+﻿@model MvcKutuphane.Models.Entity.TBLPERSONEL
+
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<h2>Personel Ekle</h2>
+<hr />
+<br />
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px;">
+        <label>Personel Ad : </label>
+        @Html.TextBoxFor(x => x.PERSONELAD, new { @class = "form-control", @placeholder = "Personel Ad Bilgilerini Giriniz..." })
+        @Html.ValidationMessageFor(x => x.PERSONELAD,"",new { @style = "color:red" })
+
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Personel Ad : </label>
+        @Html.TextBoxFor(x => x.PERSONELSOYAD, new { @class = "form-control", @placeholder = "Personel Soyad Bilgilerini Giriniz..." })
+        @Html.ValidationMessageFor(x => x.PERSONELSOYAD,"",new {@style="color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="btnKaydet"><span class="fas fa-plus-circle">&nbsp; </span> Personel Ekle</button>
+    </div>
+
+
+</form>
+
+@*<script>
+
+        $('#btnKaydet').click(function () {
+            alert('Yeni Personel Eklendi.');
+        });
+</script>*@
+

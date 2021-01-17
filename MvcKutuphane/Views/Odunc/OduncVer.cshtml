@@ -1,0 +1,53 @@
+﻿@model MvcKutuphane.Models.Entity.TBLHAREKET
+
+@{
+    ViewBag.Title = "OduncVer";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<h2>Ödünç Ver</h2>
+<hr />
+<br />
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px;">
+        <label>Üye ID : </label>
+        @Html.DropDownListFor(x => x.TBLUYELER.ID, (List<SelectListItem>)ViewBag.uye1, "Üye Seçiniz.", new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Kitap ID : </label>
+        @Html.TextBoxFor(x => x.KITAPID, new { @class = "form-control" })
+
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Personel ID : </label>
+        @Html.DropDownListFor(x => x.TBLPERSONEL.ID, (List<SelectListItem>)ViewBag.prs1, "Personel Seçiniz.", new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Kitap Alış Tarihi : </label>
+        <input type="text" class="form-control" name="ALISTARIH" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Kitap İade Tarihi : </label>
+        <input type="text" class="form-control" name="IADETARIH" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+    </div>
+
+
+    <div style="margin-top:15px;">
+        <button class="btn btn-info" id="kitapKaydet"><span class="fas fa-plus-circle"></span>&nbsp; Kitap Ödünç Ver</button>
+        <input type="hidden" name="ISLEMDURUM" value="False" />
+    </div>
+
+</form>
+
+
+<script>
+    $('#kitapKaydet').click(function () {
+        alert("İşlem Başarılı Bir Şekilde Gerçekleşti.");
+    });
+</script>

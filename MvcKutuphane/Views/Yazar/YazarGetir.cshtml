@@ -1,0 +1,49 @@
+﻿@model MvcKutuphane.Models.Entity.TBLYAZAR
+
+@{
+    ViewBag.Title = "YazarGetir";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<h2>Yazar Bilgilerini Güncelle</h2>
+<hr />
+<br />
+
+@using (Html.BeginForm("YazarGuncelle", "Yazar", FormMethod.Post))
+{
+    <div style="margin-top:15px">
+        <div class="form-group">
+            <div style="margin-top:15px;">
+                @Html.HiddenFor(x => x.ID)
+                <label>Yazar Ad : </label>
+                @Html.TextBoxFor(x => x.AD, new { @class = "form-control", @placeholder = "Yazar Ad Bilgilerini Giriniz..." })
+                @Html.ValidationMessageFor(x => x.AD, "", new { @style = "color:red" })
+
+            </div>
+
+            <div style="margin-top:15px;">
+                <label>Yazar Soyad : </label>
+                @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control", @placeholder = "Yazar Soyad Bilgilerini Giriniz..." })
+                @Html.ValidationMessageFor(x => x.SOYAD, "", new { @style = "color:red" })
+
+            </div>
+
+            <div style="margin-top:15px;">
+                <label>Yazar Detay : </label>
+                @Html.TextAreaFor(x => x.DETAY, new { @class = "form-control", @placeholder = "Yazar Detay Bilgilerini Giriniz..." })
+            </div>
+
+        </div>
+
+    </div>
+    <br />
+    <div style="margin-top:15px;">
+        <button class="btn btn-success" id="btnGuncelle"><span class="fas fa-paper-plane">&nbsp; </span>Güncelle</button>
+    </div>
+}
+
+@*<script>
+        $('#btnGuncelle').click(function () {
+            alert("Güncelleme işlemi başarılı bir şekilde gerçekleşti.");
+        });
+</script>*@

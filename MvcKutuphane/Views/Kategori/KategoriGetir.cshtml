@@ -1,0 +1,30 @@
+﻿@model MvcKutuphane.Models.Entity.TBLKATEGORI
+
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<h2>Kategori Güncelle</h2>
+<hr />
+<br />
+@using (Html.BeginForm("KategoriGuncelle", "Kategori", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.ID)
+    <label>Kategori Adı :</label>
+    @Html.TextBoxFor(x => x.AD, new { @class = "form-control", @placeholder = "Kategori Bilgilerini Giriniz..." })
+    @Html.ValidationMessageFor(x => x.AD, "", new { @style = "color:red" })
+
+</div>
+    <br />
+    <div style="margin-top:15px;">
+        <button class="btn btn-success" id="btnGuncelle"><span class="fas fa-paper-plane">&nbsp; </span>Güncelle</button>
+    </div>
+}
+
+    @*<script>
+        $('#btnGuncelle').click(function () {
+            alert("Güncelleme işlemi başarılı bir şekilde gerçekleşti.");
+        });
+    </script>*@

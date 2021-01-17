@@ -1,0 +1,59 @@
+﻿@model MvcKutuphane.Models.Entity.TBLKITAP
+
+@{
+    ViewBag.Title = "KitapGetir";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<h2>Kitap Güncelle</h2>
+<hr />
+<br />
+
+@using (Html.BeginForm("KitapGuncelle", "Kitap", FormMethod.Post))
+{
+    <div style="margin-top:15px">
+        <div class="form-group">
+            <div style="margin-top:15px;">
+                @Html.HiddenFor(x => x.ID)
+                <label>Yazar Ad : </label>
+                @Html.TextBoxFor(x => x.AD, new { @class = "form-control", @placeholder = "Kitap Ad Bilgilerini Giriniz..." })
+
+            </div>
+
+            <div style="margin-top:15px;">
+                <label>Kitap Kategorisi : </label>
+                @Html.DropDownListFor(x => x.TBLKATEGORI.ID, (List<SelectListItem>)ViewBag.ktp1, "Kategoriyi Seçiniz.", new { @class = "form-control" })
+            </div>
+
+            <div style="margin-top:15px;">
+                <label>Yazarı : </label>
+                @Html.DropDownListFor(x => x.TBLYAZAR.ID, (List<SelectListItem>)ViewBag.ktp2, "Yazarı Seçiniz.", new { @class = "form-control" })
+            </div>
+            <div style="margin-top:15px;">
+                <label>Basım Yılı : </label>
+                @Html.TextBoxFor(x => x.BASIMYIL, new { @class = "form-control", @placeholder = "Kitap Basım Yılını Giriniz..." })
+            </div>
+
+            <div style="margin-top:15px;">
+                <label>Yayınevi  : </label>
+                @Html.TextBoxFor(x => x.YAYINEVI, new { @class = "form-control", @placeholder = "Kitap Yayınevini Giriniz..." })
+            </div>
+
+            <div style="margin-top:15px;">
+                <label>Sayfa Sayısı : </label>
+                @Html.TextBoxFor(x => x.SAYFA, new { @class = "form-control", @placeholder = "Kitap Sayfa Sayısını Giriniz..." })
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <div style="margin-top:15px;">
+        <button class="btn btn-success" id="btnGuncelle"><span class="fas fa-paper-plane">&nbsp; </span>Güncelle</button>
+    </div>
+}
+
+@*<script>
+        $('#btnGuncelle').click(function () {
+            alert("Güncelleme işlemi başarılı bir şekilde gerçekleşti.");
+        });
+</script>*@

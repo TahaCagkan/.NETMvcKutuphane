@@ -1,0 +1,57 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List<TBLHAREKET>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+
+<h2>Ödünç Kitap Listesi</h2>
+<hr />
+<br />
+
+@using (Html.BeginForm("Index", "Odunc", FormMethod.Get))
+{
+
+    <div style="margin-bottom:15px;">
+        <label>Üye Ara : </label>
+        @Html.TextBox("arancak")
+
+        <button class="btn btn-info" type="submit"><span class="fas fa-search"></span>&nbsp; Ara</button>
+
+    </div>
+}
+
+
+    <table class="table table-striped">
+        <tr style="background-color:rgb(252,178,22)">
+            <th>ID</th>
+            <th>KİTAP ADI</th>
+            <th>ÜYE</th>
+            <th>PERSONEL</th>
+            <th>ALIŞ TARİHİ</th>
+            <th>İADE TARİHİ</th>
+
+            <th>İADE İŞLEMİ</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.TBLKITAP.AD</td>
+                <td>@item.TBLUYELER.AD @item.TBLUYELER.SOYAD</td>
+                <td>@item.TBLPERSONEL.PERSONELAD  @item.TBLPERSONEL.PERSONELSOYAD</td>
+                <td>@Convert.ToDateTime(item.ALISTARIH).ToString("dd/MM/yyyy")</td>
+                <td>@Convert.ToDateTime(item.IADETARIH).ToString("dd/MM/yyyy")</td>
+
+
+                <td>
+                    @Html.ActionLink("  Kitap İade Et", "Odunciade", new { id = item.ID }, new { @class = "btn btn-primary glyphicon glyphicon-inbox", onclick = "return confirm('İade Etmek İstiyor Musunuz?')" })
+                </td>
+
+            </tr>
+        }
+    </table>
+

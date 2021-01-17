@@ -1,0 +1,40 @@
+﻿@model MvcKutuphane.Models.Entity.TBLYAZAR
+
+@{
+    ViewBag.Title = "YazarEkle";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<h2>Yazar Ekle</h2>
+<hr />
+<br />
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px;">
+        <label>Yazar Adı : </label>
+        @Html.TextBoxFor(x => x.AD, "Yazar Ad Giriniz", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AD, "", new { @style = "color:red" })
+
+    </div>
+    <div style="margin-top:15px;">
+        <label>Yazar Soyad : </label>
+        @Html.TextBoxFor(x => x.SOYAD, "Yazar Soyad Giriniz", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SOYAD, "", new { @style = "color:red" })
+
+
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Yazar Detay : </label>
+        @Html.TextAreaFor(x => x.DETAY, new { @class = "form-control",@placeholder= "Yazar Detay Bilgilerini Giriniz" })
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info" id="yazarKaydet"><span class="fas fa-plus-circle"></span>&nbsp; Yazar Ekle</button>
+    </div>
+</form>
+
+@*<script>
+    $('#yazarKaydet').click(function () {
+        alert("Yeni Yazar Eklendi.");
+    });
+</script>*@

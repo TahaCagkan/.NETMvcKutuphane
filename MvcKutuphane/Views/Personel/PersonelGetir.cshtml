@@ -1,0 +1,34 @@
+﻿@model MvcKutuphane.Models.Entity.TBLPERSONEL
+
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/_LayoutYeni.cshtml";
+}
+
+<h2>Personel Güncelle</h2>
+
+<hr />
+<br />
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.ID)
+
+    <div style="margin-top:15px;">
+        <label>Personel Ad : </label>
+        @Html.TextBoxFor(x => x.PERSONELAD, new { @class = "form-control", @placeholder = "Personel Ad Bilgilerini Giriniz..." })
+        @Html.ValidationMessageFor(x => x.PERSONELAD, "", new { @style = "color:red" })
+
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Personel Soyad : </label>
+        @Html.TextBoxFor(x => x.PERSONELSOYAD, new { @class = "form-control", @placeholder = "Personel Soyad Bilgilerini Giriniz..." })
+        @Html.ValidationMessageFor(x => x.PERSONELSOYAD, "", new { @style = "color:red" })
+    </div>
+</div>
+    <br />
+    <div style="margin-top:15px;">
+        <button class="btn btn-success" id="btnGuncelle"><span class="fas fa-paper-plane">&nbsp; </span>Güncelle</button>
+    </div>
+}
